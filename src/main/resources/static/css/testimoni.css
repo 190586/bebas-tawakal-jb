@@ -1,0 +1,315 @@
+#testi-modal {
+	padding-right: 0 !important;
+}
+
+.modal-backdrop {
+	background-color: rgb(218, 94, 40);
+	opacity: .9 !important;
+}
+
+#testi-modal .modal-dialog {
+	position: absolute;
+	left: 50%;
+	margin-right: -50%;
+	-webkit-transform: translate(-50%);
+	-ms-transform: translate(-50%);
+	-o-transform: translate(-50%);
+	transform: translate(-50%);
+}
+
+#testi-modal .modal-content {
+	-webkit-box-shadow: 7px 14px 50px rgba(0,0,0,0.3);
+    box-shadow: 7px 14px 50px rgba(0,0,0,0.3);
+    border: none;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+#testi-modal .modal-body {
+	padding: 30px;
+	max-width: 90vw;
+}
+
+#testi-modal a.close {
+    right: 15px;
+    top: 15px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#testi-modal .title h3 {
+	font-family: "Circular Medium", sans-serif;
+	font-size: 36px;
+	line-height: 30px;
+	color: #e87722;
+	margin-left: -2px;
+}
+
+#testi-modal .title p {
+	font-family: "Circular Regular", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #646464;
+}
+
+.button-facebook {
+	width: 70%;
+	display: block;
+	background-color: #3b5998;
+	border-radius: 5px;
+	margin: 40px auto 20px auto;
+	padding: 15px 17px;
+	min-width: 330px;
+	cursor: pointer;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.button-facebook:hover {
+	background-color: #5076c7;
+}
+
+.button-facebook img, .button-facebook p {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.button-facebook p {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 19.47px;
+	color: #FFF;
+	margin-left: 30px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.border-left-right {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.border-left-right:before, .border-left-right:after {
+	display: block;
+	position: absolute;
+	content: "";
+	width: 20%;
+	top: 50%;
+	height: 1px;
+	background-color: #000;
+}
+
+.border-left-right:before {
+	left: 0;
+}
+
+.border-left-right:after {
+	right: 0;
+}
+
+.border-left-right p {
+	font-family: "Circular Regular", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #646464;
+	text-align: center;
+}
+
+#testi-modal .form-control {
+	font-family: "Circular Regular", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #646464;
+	padding: 25px 15px;
+	border-color: #f36624;
+}
+
+#testi-modal textarea.form-control {
+	resize: none;
+	padding: 10px 15px;
+}
+
+#testi-modal label {
+	font-family: "Circular Medium", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+#testi-modal input[type="file"] {
+	display: none;
+}
+
+.testi-photo-upload > p, .testi-photo-upload > div {
+	display: inline-block;
+	vertical-align: middle;
+	width: calc(50% - 4px);
+	font-family: "Circular Regular", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.testi-photo-upload > p {
+	color: #7d7d7d;
+}
+
+.testi-photo-upload div {
+	 
+}
+
+.testi-photo-upload div > #testi-photo {
+	border-radius: 0;
+	border: 1px solid #f36624;
+	background-color: #FFF;
+	color: #f36624;
+	padding: 15px 10px;
+	box-shadow: none;
+	float: right;
+	z-index: 99;
+}
+
+.testi-photo-upload div > #testi-photo:hover {
+	background-color: #f36624;
+	color: #FFF;
+}
+
+#testi-modal p.red {
+	color: #f80000;
+}
+
+#testi-modal p.detail {
+	font-family: "Circular Regular", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+#testi-modal .btn.orange {
+	background-color: #f36624;
+	font-family: "Circular Regular", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #FFF;
+	padding: 17px 15px;
+	width: 70%;
+	display: block;
+	margin: 10px auto;
+}
+
+.testi-submit .detail-profile {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.testi-submit .detail-profile .profile-image, .testi-submit .detail-profile .profile-text {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: calc(50% - 4px);
+}
+
+.testi-submit .detail-profile .profile-image img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin-right: 35px;
+}
+
+.testi-submit textarea {
+	height: 290px;
+}
+
+.testi-submit .profile-text p.name {
+	font-family: "Circular Medium", sans-serif;
+	font-size: 20px;
+	line-height: 26px;
+}
+
+.testi-submit .profile-text p.job {
+	font-family: "Circular Regular", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.testi-thank .title {
+	margin-bottom: 65px;
+}
+
+.testi-thank .title h3 {
+	margin-bottom: 25px;
+}
+
+.testi-thank button.orange {
+	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 991px) {
+	
+	.button-facebook {
+		margin-top: 20px;
+		min-width: auto;
+		width: 80%;
+	}
+
+}
+
+@media only screen and (max-width: 767px) {
+	
+	#testi-modal .modal-dialog {
+		position: relative;
+		display: block;
+		left: 0;
+		margin-right: 0;
+		-webkit-transform: none;
+		-ms-transform: none;
+		-o-transform: none;
+		transform: none;
+		max-width: 90vw;
+		margin: 15px auto;
+	}
+
+	#testi-modal .modal-body {
+		padding: 30px 25px;
+		max-width: none;
+	}
+
+	#testi-modal .title h3 {
+		font-size: 28px;
+	}
+
+	.button-facebook {
+		width: 100%;
+	}
+
+}
+
+@media only screen and (max-width: 425px) {
+	
+	.button-facebook p {
+		margin-left: 5%;
+		font-size: 18px;
+	}
+
+	.border-left-right:before, .border-left-right:after {
+		width: 10%;
+	}
+
+	.button-facebook img {
+		width: 25px;
+	}
+
+}
+
+@media only screen and (max-width: 375px) {
+	
+	.button-facebook p {
+		font-size: 14px;
+	}
+
+	.border-left-right:before, .border-left-right:after {
+		width: 7%;
+	}
+
+}
+
+@media only screen and (max-width: 320px) {
+
+}

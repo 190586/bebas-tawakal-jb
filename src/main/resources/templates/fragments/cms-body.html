@@ -1,0 +1,152 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   
+</head>
+<body>
+<div id="preloader" th:fragment="cms-body-preload">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div> 
+
+<div th:fragment="cms-body-left">
+    <!-- this is header -->
+    <div class="leftpanel">
+    
+    <div class="logopanel">
+        <img src="/cms/images/logo-net.png" class="img-responsive" style="max-height: 30px; margin: 0 auto;"/>
+    </div><!-- logopanel -->
+        
+    <div class="leftpanelinner">    
+        
+        <!-- This is only visible to small devices -->
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">   
+            <div class="media userlogged">
+                <img alt="" src="" class="media-object my-avatar-path"/>
+                <div class="media-body">
+                    <h4 class="my-fullname" />
+					<span class="my-role" />
+                </div>
+            </div>
+            <h5 class="sidebartitle actitle">Account</h5>
+            <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+				<!--<li><a href="Login.loadModule('myprofile')"><i class="fa fa-user"></i> <span>Profile</span></a></li>-->
+				<!--<li><a href="#"><i class="fa fa-cog"></i> <span>Account Settings</span></a></li>-->
+				<li><a href="#" class="sign-out-button"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+            </ul>
+        </div>
+      
+      <h5 class="sidebartitle">Navigation</h5>
+      <ul class="nav nav-pills nav-stacked nav-bracket main-menu">
+        <li class="sub-menu-dashboard">
+          <a onclick="Login.loadModule();">
+            <i class="fa fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+		<li class="nav-parent sub-menu-pages">
+          <a href="javascript:;" >
+            <i class="fa fa-file-text"></i>
+            <span>Pages</span>
+          </a>
+          <ul class="children">
+            <li class="">
+              <a onclick="Login.loadModule('pages');">
+                <i class="fa fa-caret-right"></i> All Pages
+              </a>
+            </li>
+            <li class="">
+              <a onclick="Login.loadModule('addpage');">
+                <i class="fa fa-caret-right"></i> Add Page
+              </a>
+            </li>
+          </ul>
+        </li>
+		<li class="sub-menu-menu">
+          <a onclick="Login.loadModule('menu');">
+            <i class="fa fa-tasks"></i>
+            <span>Menu</span></a>
+        </li>        
+        <li class="sub-menu-testimonial">
+          <a onclick="Login.loadModule('testimonial');">
+            <i class="fa fa-envelope-o"></i>
+            <span>Testimonial</span></a>
+        </li>        
+        <li class="sub-menu-user">
+          <a onclick="Login.loadModule('user');">
+            <i class="fa fa-users"></i>
+            <span>Users</span></a>
+        </li>
+        <li class="nav-parent sub-menu-profile">
+          <a href="javascript:;">
+            <i class="fa fa-wrench"></i>
+            <span>Settings</span>
+          </a>
+          <ul class="children">
+            <li class="">
+              <a onclick="Login.loadModule('profile');">
+                <i class="fa fa-caret-right"></i> Profile
+              </a>
+            </li>
+          </ul>
+        </li>
+        
+        <li class="">
+          <a href="#" class="sign-out-button">
+            <i class="fa fa-lock"></i>
+            <span>Log Out</span>
+          </a>
+        </li>
+      </ul>
+      
+      <div class="infosummary">
+        <h5 class="sidebartitle">Information Summary</h5>    
+        <ul>
+            <li>
+              <i class="glyphicon glyphicon-home mr5"></i> Jl. Letjen Sutoyo 109-111, Malang
+            </li>
+            <li>
+              <i class="glyphicon glyphicon-phone mr5"></i> 0341-8441777
+            </li>
+            <li>
+              <i class="glyphicon glyphicon-print mr5"></i> 0341-479352
+            </li>
+            <li>
+              <i class="glyphicon glyphicon-envelope mr5"></i> info@the-netwerk.com
+            </li>
+        </ul>
+      </div><!-- infosummary -->
+      
+    </div><!-- leftpanelinner -->
+  </div><!-- leftpanel -->
+</div>
+
+<div th:fragment="cms-body-headerbar">
+<div class="headerbar">
+      
+      <a class="menutoggle"><i class="fa fa-bars"></i></a>
+      
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group header-notification">
+              <button class="btn btn-default dropdown-toggle tp-icon" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-globe"></i>
+                <span class="badge header-notification-badge"></span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-head pull-right">
+                <h5 class="title header-notification-title"></h5>
+                <ul class="dropdown-list gen-list header-notification-list"></ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <button id="chatview" class="btn btn-default tp-icon chat-icon">
+                <i class="glyphicon glyphicon-comment"></i>
+            </button>
+          </li>
+        </ul>
+      </div><!-- header-right -->
+      
+    </div><!-- headerbar -->
+</div>
+</body>
+</html>

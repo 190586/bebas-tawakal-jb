@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>FWD Login</title>
+    <div th:replace="fragments/cms-header :: cms-header-top"/>
+</head>
+<body class="signin">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+  
+    <div class="signinpanel">
+        
+        <div class="row">
+            
+            <div class="col-md-7">
+                
+                <div class="signin-info">
+                    <div class="logopanel">
+                        <img src="cms/images/logo-net.png" class="img-responsive"/>
+                    </div><!-- logopanel -->
+                
+                    <div class="mb20"></div>
+                
+                    <ul>
+                      <li>
+                        <i class="glyphicon glyphicon-home mr5"></i> Jl. Letjen Sutoyo 109-111, Malang
+                      </li>
+                      <li>
+                        <i class="glyphicon glyphicon-phone mr5"></i> 0341-8441777
+                      </li>
+                      <li>
+                        <i class="glyphicon glyphicon-print mr5"></i> 0341-479352
+                      </li>
+                      <li>
+                        <i class="glyphicon glyphicon-envelope mr5"></i> info@the-netwerk.com
+                      </li>
+                    </ul>
+                    <div class="mb20"></div>
+                </div><!-- signin0-info -->
+            
+            </div><!-- col-sm-7 -->
+            
+            <div class="col-md-5">
+                
+                <form id="loginform" method="post" action="">
+                    <h4 class="nomargin">Sign In</h4>
+                    <p class="mt5 mb20">Login to access your account.</p>
+					<p id="login-warning" class="text-danger">Username and Password not match!</p>
+                    <input type="text" id="username" name="username" class="form-control uname" placeholder="Username" required="true" />
+                    <input type="password" id="password" name="password" class="form-control pword" placeholder="Password" required="true" />
+                    <button type="submit" id="login-button" class="btn btn-success btn-block">Sign In</button>
+                    
+                </form>
+            </div><!-- col-sm-5 -->
+            
+        </div><!-- row -->
+        
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2018. All Rights Reserved. <a href="https://www.fwd.co.id/id/" target="_blank">FWD Indonesia</a>
+            </div>
+            <div class="pull-right">
+                Created By: <a href="https://www.fwd.co.id/id/" target="_blank">FWD Indonesia</a>
+            </div>
+        </div>
+        
+    </div><!-- signin -->
+  
+</section>
+<script th:src="@{/cms/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/cms/js/jquery-migrate-1.2.1.min.js}"></script>
+<script th:src="@{/cms/js/jquery-ui-1.10.3.min.js}"></script>
+<script th:src="@{/cms/js/bootstrap.min.js}"></script>
+<script th:src="@{/cms/js/jquery.cookies.js}"></script>
+<script th:src="@{/cms/js/jquery.validate.min.js}"></script>
+<script th:src="@{/cms/js/jquery.maskedinput.min.js}"></script>
+<script th:src="@{/cms/js/jquery.tagsinput.min.js}"></script>
+<script th:src="@{/cms/js/login.js}"></script>
+<script th:src="@{/cms/js/custom.js}"></script>
+
+</body>
+</html>

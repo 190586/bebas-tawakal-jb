@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <div th:replace="/../fragments/cms-header :: cms-header-top"/>
+</head>
+
+<body>
+
+<!-- Preloader-->
+<div th:replace="/../fragments/cms-body :: cms-body-preload"/>
+
+<section>
+  
+  <!--  left panel -->
+  <div th:replace="/../fragments/cms-body :: cms-body-left"/>
+  
+  <div class="mainpanel">
+    <!-- cms-body-headerbar-->
+    <div th:replace="/../fragments/cms-body :: cms-body-headerbar"/>
+    
+    
+    <div class="pageheader">
+      <h2><i class="pageheader-h2-icon"></i><text class="pageheader-h2-text" /></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li class="active pageheader-module"></li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="contentpanel cs_df" />
+	
+	<!-- Notification -->
+	<div class="modal fade" id="modalNotification" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div id="notification"></div>
+		</div>
+	</div>
+	<!-- End Notification -->
+    
+  </div><!-- mainpanel -->
+  
+  <div class="rightpanel">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a href="#rp-alluser" data-toggle="tab"><i class="fa fa-users"></i> &nbsp;Support Center</a></li>
+    </ul>
+        
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="rp-alluser">
+      </div>  
+        <!-- tab-pane -->
+        
+    </div><!-- tab-content -->
+  </div><!-- rightpanel -->
+  
+</section>
+
+<script th:src="@{/cms/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/cms/js/jquery-migrate-1.2.1.min.js}"></script>
+<script th:src="@{/cms/js/jquery-ui-1.10.3.min.js}"></script>
+<script th:src="@{/cms/js/bootstrap.min.js}"></script>
+<script th:src="@{/cms/js/modernizr.min.js}"></script>
+<script th:src="@{/cms/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/cms/js/raphael-2.1.0.min.js}"></script>
+<script th:src="@{/cms/js/jquery.datatables.min.js}"></script>
+<script th:src="@{/cms/js/jquery.validate.min.js}"></script>
+
+<script th:src="@{/cms/js/wysihtml5-0.3.0.min.js}"></script>
+<script th:src="@{/cms/js/bootstrap-wysihtml5.min.js}"></script>
+<script th:src="@{/cms/js/jquery.autogrow-textarea.min.js}"></script>
+
+<script th:src="@{/cms/js/bootstrap-fileupload.min.js}"></script>
+<script th:src="@{/cms/js/bootstrap-timepicker.min.js}"></script>
+<script th:src="@{/cms/js/jquery.maskedinput.min.js}"></script>
+<script th:src="@{/cms/js/jquery.tagsinput.min.js}"></script>
+<script th:src="@{/cms/js/jquery.mousewheel.min.js}"></script>
+<script th:src="@{/cms/js/chosen.jquery.min.js}"></script>
+<script th:src="@{/cms/js/dropzone.min.js}"></script>
+<script th:src="@{/cms/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+
+<script th:src="@{/cms/js/notification.min.js}"></script>
+<script th:src="@{/cms/js/pages.min.js}"></script>
+<script th:src="@{/cms/js/user.min.js}"></script>
+<script th:src="@{/cms/js/testimonial.min.js}"></script>
+<script th:src="@{/cms/js/profile.min.js}"></script>
+<script th:src="@{/cms/js/menu.min.js}"></script>
+<script th:src="@{/cms/js/login.min.js}"></script>
+<script th:src="@{/cms/js/custom.min.js}"></script>
+</body>
+</html>

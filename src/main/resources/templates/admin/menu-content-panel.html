@@ -1,0 +1,153 @@
+<div class="panel-body">   
+	<!-- table-responsive -->
+	<div class="table-responsive">
+		<table id="datatable1" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered" width="100%">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Title</th>
+					<th>Type</th>
+					<th>Short Description</th>
+					<th>Order</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<!-- end table-responsive -->
+</div>
+
+<!-- Menu Form -->
+<div class="modal fade" id="menuModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" id="modalFormHeader">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title"><span id="header-title-mode">Create New</span> Menu <span id="header-title"></span></h4>
+			</div>
+			<div class="modal-body" id="modalFormBody">
+				<div id="embeddedNotification" style="display:none;"></div>
+				<form id="formvalidate" action="" method="post" class="form-horizontal" enctype="multipart/form-data" novalidate="novalidate">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Title</label>
+						<div class="col-sm-10">
+							<input type="text" id="title" name="title" value="" class="form-control"/>
+							<label class="error" for="title"></label>
+						</div>
+					</div>
+					<div class="form-group">
+					  <label class="col-sm-2 control-label">Type <span class="asterisk">*</span></label>
+					  <div class="col-sm-9">
+						<select id="type" name="type" class="form-control chosen-select" required="true">
+						   <option value="CAROUSEL">CAROUSEL</option>
+						   <option value="STATIC-RIGHT">STATIC-RIGHT</option>
+						   <option value="FIRST-MENU">FIRST-MENU</option>
+						   <option value="SECONDARY-MENU">SECONDARY-MENU</option>
+						   <option value="MOBILE-MENU">MOBILE-MENU</option>
+						   <option value="FOOTER-LEFT">FOOTER-LEFT</option>
+						   <option value="FOOTER-RIGHT">FOOTER-RIGHT</option>
+						</select>
+						<label class="error" for="type"></label>
+					  </div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Short Desc</label>
+						<div class="col-sm-10">
+							<textarea id="shortDescription" name="shortDescription" style="width:100%" />
+							<label class="error" for="shortDescription"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Description</label>
+						<div class="col-sm-10">
+							<textarea id="description" name="description" style="width:100%" />
+							<label class="error" for="description"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">URL</label>
+						<div class="col-sm-10">
+							<input type="text" id="url" name="url" value="" class="form-control" required="true"/>
+							<label class="error" for="url"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Button Text <span class="asterisk"></span></label>
+						<div class="col-sm-10">
+							<input type="text" id="buttonText" name="buttonText" value="" class="form-control" />
+							<label class="error" for="buttonText"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Image</label>
+						<div class="col-sm-10">
+							<img id="menu-image" style="width:80%;padding:3px;border:thin solid #dddddd;border-radius:5px;" />
+							<div id="menu-image-fileupload" class="fileupload fileupload-new" data-provides="fileupload">
+								<div class="input-append">
+									<div class="uneditable-input">
+										<i class="glyphicon glyphicon-file fileupload-exists"></i>
+										<span class="fileupload-preview"></span>
+									</div>
+									<span class="btn btn-default btn-file">
+										<span class="fileupload-new">Select file</span>
+										<span class="fileupload-exists">Change</span>
+										<input type="file" id="image" name="image"/>
+									</span>
+									<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+								</div>
+								<label class="error" for="image"></label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+					  <label class="col-sm-2 control-label">Order <span class="asterisk">*</span></label>
+					  <div class="col-sm-10">
+						<input type="text" id="orders" name="orders" value="1" class="form-control" required="true" readonly="true" />
+						<label class="error" for="orders"></label>
+					  </div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Data Href <span class="asterisk">*</span></label>
+						<div class="col-sm-1">
+							<input type="checkbox" id="dataHref" name="dataHref" value="true" class="form-control" style="margin-top:12px;"/>
+							<label class="error" for="dataHref"></label>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 control-label">Active Time <span class="asterisk">*</span></label>
+						<div class="col-sm-2">
+							<input type="text" id="startTime" name="startTime" value="" style="width:92px;" class="form-control" required="true" />
+							<label class="error" for="startTime"></label>
+						</div>
+						<div class="col-sm-2 control-label" style="text-align:center;">until</div>
+						<div class="col-sm-2">
+							<input type="text" id="endTime" name="endTime" value="" style="width:92px;" class="form-control" required="true" />
+							<label class="error" for="endTime"></label>
+						</div>
+					</div>
+					<div class="form-group">
+					  <label class="col-sm-2 control-label">Status <span class="asterisk">*</span></label>
+					  <div class="col-sm-9">
+						<select id="active" name="active" class="form-control chosen-select" required="true">
+						   <option value="true">Active</option>
+						   <option value="false">Inactive</option>
+						</select>
+						<label class="error" for="active"></label>
+					  </div>
+					</div>
+					<input type="hidden" id="idMenu" name="idMenu" value="" />
+					<div class="form-group">
+						<div class="col-sm-offset-8 col-sm-12">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="reset" class="btn btn-default" id="btn-cancel">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Menu Form-->

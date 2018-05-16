@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+</head>
+<body>
+<div th:fragment="footer">
+
+<footer>
+      <div class="container-fluid">
+        <div class="row clearfix">
+          <div class="col-xs-12 bg-green">
+            <div class="row">
+              <div class="col-xs-6 col-sm-3 col-md-2 col-md-offset-1">
+                <h3 class="footer-title">Product</h3>
+                <ul class="footer-menu" id="product-list"></ul>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-3">
+                <h3 class="footer-title">Customer Place</h3>
+                <ul class="footer-menu" id="customer-place-list"></ul>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-3">
+                <h3 class="footer-title">Social Media</h3>
+                <div class="social-media">
+                  <a href="" class="socmed-instagram"><img src="images/icon/instagram.png" alt="instagram"></img></a>
+                  <a href="" class="socmed-youtube"><img src="images/icon/youtube.png" alt="youtube"></img></a>
+                  <a href="" class="socmed-facebook"><img src="images/icon/facebook.png" alt="facebook"></img></a>
+                  <a href="" class="socmed-twitter"><img src="images/icon/twitter.png" alt="twitter"></img></a>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-3">
+                <div class="hotline-title">
+                  <img src="assets/images/icon/phone.png" alt=""></img>
+                  <h3>HOTLINE</h3>
+                </div>
+                <p class="hotline-number"></p>
+                <p class="small white">24/7 for you</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 bg-black">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1" id="footer-description"></div>
+            </div>
+          </div>
+          <div class="col-xs-12 bg-white">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="left footer-left"></div>
+                <div class="right footer-right"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-top-holder">
+        <button class="btn btn-top">
+          <p>back to top</p>
+        </button>
+      </div>
+</footer>
+<div class="mobile-menu-overlay visible-xs"></div>
+<div class="mobile-menu visible-xs">
+      <div class="mobile-menu-content-holder">
+        <i class="glyphicon glyphicon-remove btn-close"></i>
+        <div class="bg-gray">
+          <div class="profile logged-in">
+            <img alt="Profile Image" class="img-responsive profile-image"></img>
+            <p class="profile-name"></p>
+          </div>
+          <div class="profile logged-out">
+            <img alt="Profile Image" class="img-responsive main-logo"></img>
+          </div>
+        </div>
+        <div class="menu-item" id="mobile-menu"></div>
+        <div class="button-holder">
+          <button class="btn btn-logout mobile-menu-btn-logout">Logout</button>
+        </div>
+      </div>
+</div>
+<link rel="stylesheet" th:href="@{/css/testimoni.css}" href="/css/testimoni.css" />
+<div id="testi-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a class="close" data-dismiss="modal">&#10005;</a>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/homepage.min.js"></script>
+
+</div>
+</body>
+</html>

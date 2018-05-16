@@ -1,0 +1,146 @@
+<div class="panel-body">   
+	<!-- table-responsive -->
+	<div class="table-responsive">
+		<table id="datatable1" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered" width="100%">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Company Name</th>
+					<th>Address</th>
+					<th>Hotline</th>
+					<th>Email</th>
+					<th>Links</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<!-- end table-responsive -->
+</div>
+
+<!-- Profile Form -->
+<div class="modal fade" id="profileModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" id="modalFormHeader">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title"><span id="header-title-mode">Create New</span> Profile <span id="header-title"></span></h4>
+			</div>
+			<div class="modal-body" id="modalFormBody">
+				<div id="embeddedNotification" style="display:none;"></div>
+				<form id="formvalidate" action="" method="post" class="form-horizontal" enctype="multipart/form-data" novalidate="novalidate">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Company Name<span class="asterisk"></span></label>
+						<div class="col-sm-10">
+							<input type="text" id="companyName" name="companyName" value="" class="form-control" required="true"/>
+							<label class="error" for="companyName"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Address 1<span class="asterisk"></span></label>
+						<div class="col-sm-10">
+							<textarea id="address1" name="address1" style="width:100%" required="true" />
+							<label class="error" for="address1"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Address 2<span class="asterisk"></span></label>
+						<div class="col-sm-10">
+							<textarea id="address2" name="address2" style="width:100%" required="true" />
+							<label class="error" for="address2"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Hotline</label>
+						<div class="col-sm-10">
+							<input type="text" id="hotline" name="hotline" value="" class="form-control" required="true"/>
+							<label class="error" for="hotline"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Email <span class="asterisk"></span></label>
+						<div class="col-sm-10">
+							<input type="email" id="email" name="email" value="" class="form-control" required="true" />
+							<label class="error" for="email"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Logo</label>
+						<div class="col-sm-2 logo-preview">
+							<img id="logo-image" style="width:90%;padding:3px;border:thin solid #dddddd;border-radius:5px;" />
+						</div>
+						<div class="col-sm-8">
+							<div id="logo-image-preview" class="fileupload fileupload-new" data-provides="fileupload">
+								<div class="input-append">
+									<div class="uneditable-input">
+										<i class="glyphicon glyphicon-file fileupload-exists"></i>
+										<span class="fileupload-preview"></span>
+									</div>
+									<span class="btn btn-default btn-file">
+										<span class="fileupload-new">Select file</span>
+										<span class="fileupload-exists">Change</span>
+										<input type="file" id="logoPath" name="logoPath"/>
+									</span>
+									<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+								</div>
+								<label class="error" for="logoPath"></label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Footer Desc<span class="asterisk"></span></label>
+						<div class="col-sm-10">
+							<textarea id="footerDescription" name="footerDescription" style="width:100%" required="true" />
+							<label class="error" for="footerDescription"></label>
+						</div>
+					</div>
+					<div class="form-group">
+					  <label class="col-sm-2 control-label">Youtube <span class="asterisk">*</span></label>
+					  <div class="col-sm-10">
+						<input type="text" id="youtubeLink" name="youtubeLink" value="" class="form-control" required="true" />
+						<label class="error" for="youtubeLink"></label>
+					  </div>
+					</div>
+					<div class="form-group">
+					  <label class="col-sm-2 control-label">Instagram <span class="asterisk">*</span></label>
+					  <div class="col-sm-10">
+						<input type="text" id="instagramLink" name="instagramLink" value="" class="form-control" required="true" />
+						<label class="error" for="instagramLink"></label>
+					  </div>
+					</div>
+					<div class="form-group">
+					  <label class="col-sm-2 control-label">Facebook <span class="asterisk">*</span></label>
+					  <div class="col-sm-10">
+						<input type="text" id="facebookLink" name="facebookLink" value="" class="form-control" required="true" />
+						<label class="error" for="facebookLink"></label>
+					  </div>
+					</div>
+					<div class="form-group">
+					  <label class="col-sm-2 control-label">Twitter <span class="asterisk">*</span></label>
+					  <div class="col-sm-10">
+						<input type="text" id="twitterLink" name="twitterLink" value="" class="form-control" required="true" />
+						<label class="error" for="twitterLink"></label>
+					  </div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Primary</label>
+						<div class="col-sm-1">
+							<input type="checkbox" id="prime" name="prime" value="true" class="form-control" style="margin-top:12px;"/>
+							<label class="error" for="prime"></label>
+						</div>
+					</div>
+					<input type="hidden" id="idProfile" name="idProfile" value="" />
+					<div class="form-group">
+						<div class="col-sm-offset-8 col-sm-12">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="reset" class="btn btn-default" id="btn-cancel">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Profile Form-->

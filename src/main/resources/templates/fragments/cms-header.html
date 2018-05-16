@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="cms-header-top">
+      <meta charset="utf-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	  <meta name="description" content=""/>
+	  <meta name="author" content=""/>
+	  <link rel="shortcut icon" th:href="@{/cms/images/favicon.png}" type="image/png"/>
+	  <title>FWD cms Panel</title>
+	  <link  th:href="@{/cms/css/style.default.css}" rel="stylesheet"/>
+	  <link th:href="@{/cms/css/jquery.datatables.css}" rel="stylesheet"/>
+	  <!--<link th:href="@{/cms/css/jquery.fancybox.css}" rel="stylesheet"/>-->
+	  <link th:href="@{/cms/css/bootstrap-fileupload.min.css}" rel="stylesheet"/>
+	  <!--<link th:href="@{/cms/css/bootstrap-timepicker.min.css}" rel="stylesheet"/>-->
+	  <!--<link th:href="@{/cms/css/jquery.tagsinput.css}" rel="stylesheet"/>-->
+	  <!--<link th:href="@{/cms/css/colorpicker.css}" rel="stylesheet"/>-->
+	  <!--<link th:href="@{/cms/css/dropzone.css}" rel="stylesheet"/>-->
+	  <link th:href="@{/cms/css/jquery.mCustomScrollbar.css}" rel="stylesheet"/>
+	  <link th:href="@{/cms/css/bootstrap-wysihtml5.css}" rel="stylesheet"/>
+ 	</div>
+</head>
+<body>
+<div th:fragment="cms-header">
+    <!-- this is header -->
+    <header>
+      <nav class="navbar black">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li><a>LAYANAN HOTLINE 1500391 (24/7)</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hidden-xs">
+            <li><a href="#">Beranda</a></li>
+           	<li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">MASUK <span class="caret rotate-to-right"></span></a></li>
+            <li><a href="#">CHAT SEKARANG</a></li>
+          </ul>
+        </div>
+      </nav>
+      <nav class="navbar white">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Logo" class="img-responsive"></img></a>
+          </div>
+          <ul class="nav navbar-nav navbar-right hidden-xs">
+            <li><a data-href="#insurane">WHY INSURANCE</a></li>
+            <li><a data-href="#testimoni">TESTIMONI</a></li>
+            <li><a data-href=".section-3">BEBAS <span class="caret orange"></span></a></li>
+          </ul>
+          <div class="burger-menu-holder visible-xs">
+            <div class="burger-menu"></div>
+          </div>
+        </div>
+      </nav>
+	</header>
+</div>
+
+</body>
+</html>
