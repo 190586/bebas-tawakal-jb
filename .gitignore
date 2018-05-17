@@ -1,2 +1,7 @@
 /target/*
 src/main/resources/application.properties
+.classpath
+.project
+.settings/
+src/main/.DS_Store
+src/main/resources/.DS_Store
