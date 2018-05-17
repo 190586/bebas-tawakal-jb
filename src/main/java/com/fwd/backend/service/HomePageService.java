@@ -16,7 +16,7 @@ public class HomePageService {
     
     public List<Menu> getHomeSlider() {
         Date now = new Date();
-        List<Menu> menu = menuRepository.findTop5ByTypeAndActiveAndStartTimeLessThanAndEndTimeGreaterThanOrderByOrdersAsc(Menu.HOME_SLIDER_TYPE, true, now, now);
+        List<Menu> menu = menuRepository.findByTypeAndActiveAndStartTimeLessThanAndEndTimeGreaterThanOrderByOrdersAsc(Menu.HOME_SLIDER_TYPE, true, now, now);
         
         return menu;
     }

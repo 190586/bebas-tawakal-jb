@@ -4,17 +4,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.fwd.backend.domain.Partner;
 import java.util.List;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- * Repository for Department entity
+ * Repository for partner entity
  * 
  * @author moe
  *
  */
-public interface PartnerRepository extends JpaRepository<Partner, Long> {
-     @Query
-    List<Partner> findByApproval(@Param("approval") boolean approval);
+@RepositoryRestResource(collectionResourceRel = "partner", path = "partner")
+public interface PartnerRepository extends CrudRepository<Partner, Long>, PagingAndSortingRepository<Partner, Long> {
+    
+    public abstract List<Partner> findByApproval(boolean approval);
     
 }
