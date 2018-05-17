@@ -22,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>com.fwd.backend.Application</start-class>
         <java.version>1.7</java.version>
+        <spring-security-oauth2.version>2.0.3.RELEASE</spring-security-oauth2.version>
     </properties>
 
     <dependencies>
@@ -29,6 +30,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        
+	<dependency>
+        	<groupId>org.springframework.security.oauth</groupId>
+		<artifactId>spring-security-oauth2</artifactId>
+		<version>${spring-security-oauth2.version}</version>
+	</dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
