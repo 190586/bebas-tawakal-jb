@@ -84,12 +84,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         web
                 .ignoring()
                 .antMatchers("/api/register")
-                .antMatchers("/api/activate")
-                .antMatchers("/api/lostpassword")
                 .antMatchers("/api/resetpassword")
-                .antMatchers("/","/testi-regist", "/testi-submit", "/testi-thanks",
-				"/home/**", "/about", "/public/**", "/fonts/**",
-				"/cms/**");
+                .antMatchers("/", "/home/**", "/public/**", "/fonts/**", "/cms/**");
 
     }
 

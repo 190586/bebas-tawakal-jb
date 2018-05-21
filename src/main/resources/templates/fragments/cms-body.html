@@ -1,7 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-   
-</head>
+<head />
 <body>
 <div id="preloader" th:fragment="cms-body-preload">
     <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
@@ -12,7 +10,7 @@
     <div class="leftpanel">
     
     <div class="logopanel">
-        <img src="/cms/images/logo-net.png" class="img-responsive" style="max-height: 30px; margin: 0 auto;"/>
+        <img th:src="@{/cms/images/fwd-logo.png}" class="img-responsive" style="max-height: 30px; margin: 0 auto;"/>
     </div><!-- logopanel -->
         
     <div class="leftpanelinner">    
@@ -36,59 +34,32 @@
       
       <h5 class="sidebartitle">Navigation</h5>
       <ul class="nav nav-pills nav-stacked nav-bracket main-menu">
-        <li class="sub-menu-dashboard">
+        <li class="sub-menu sub-menu-dashboard">
           <a onclick="Login.loadModule();">
             <i class="fa fa-home"></i>
             <span>Dashboard</span>
           </a>
         </li>
-		<li class="nav-parent sub-menu-pages">
-          <a href="javascript:;" >
-            <i class="fa fa-file-text"></i>
-            <span>Pages</span>
-          </a>
-          <ul class="children">
-            <li class="">
-              <a onclick="Login.loadModule('pages');">
-                <i class="fa fa-caret-right"></i> All Pages
-              </a>
-            </li>
-            <li class="">
-              <a onclick="Login.loadModule('addpage');">
-                <i class="fa fa-caret-right"></i> Add Page
-              </a>
-            </li>
-          </ul>
-        </li>
-		<li class="sub-menu-menu">
+		<li class="sub-menu sub-menu-menu">
           <a onclick="Login.loadModule('menu');">
             <i class="fa fa-tasks"></i>
             <span>Menu</span></a>
         </li>        
-        <li class="sub-menu-testimonial">
-          <a onclick="Login.loadModule('testimonial');">
-            <i class="fa fa-envelope-o"></i>
-            <span>Testimonial</span></a>
+        <li class="sub-menu sub-menu-customer">
+          <a onclick="Login.loadModule('customer');">
+            <i class="fa fa-user-circle"></i>
+            <span>Customer</span></a>
+        </li>
+		<li class="sub-menu sub-menu-partner">
+          <a onclick="Login.loadModule('partner');">
+            <i class="fa fa-handshake-o"></i>
+            <span>Partner</span></a>
         </li>        
-        <li class="sub-menu-user">
+        <li class="sub-menu sub-menu-user">
           <a onclick="Login.loadModule('user');">
             <i class="fa fa-users"></i>
             <span>Users</span></a>
         </li>
-        <li class="nav-parent sub-menu-profile">
-          <a href="javascript:;">
-            <i class="fa fa-wrench"></i>
-            <span>Settings</span>
-          </a>
-          <ul class="children">
-            <li class="">
-              <a onclick="Login.loadModule('profile');">
-                <i class="fa fa-caret-right"></i> Profile
-              </a>
-            </li>
-          </ul>
-        </li>
-        
         <li class="">
           <a href="#" class="sign-out-button">
             <i class="fa fa-lock"></i>

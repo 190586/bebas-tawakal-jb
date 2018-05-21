@@ -26,9 +26,9 @@ public class DefaultController {
       return "admin/content";
     }
     
-    @RequestMapping(value = "/admin/users-content-panel", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/user-content-panel", method = RequestMethod.GET)
     public String adminuserscontentpanel() {
-        return "admin/users-content-panel";
+        return "admin/user-content-panel";
     }
     
     @RequestMapping(value = "/admin/menu-content-panel", method = RequestMethod.GET)

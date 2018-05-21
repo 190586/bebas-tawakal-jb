@@ -5,10 +5,9 @@
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>Avatar</th>
-						<th>Name</th>
-						<th>Age</th>
-						<th>Website</th>
+						<th>Logo</th>
+						<th>Company</th>
+						<th>Address</th>
 						<th>Content</th>
 						<th>Action</th>
 					</tr>
@@ -19,42 +18,56 @@
 		</div>
 		<!-- end table-responsive -->
 	</div>
-	<!-- Testimonial Form -->
-	<div class="modal fade" id="testimonialModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<!-- Partner Form -->
+	<div class="modal fade" id="partnerModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" id="modalFormHeader">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Edit Testimonial</h4>
+					<h4 class="modal-title">Edit Partner</h4>
 				</div>
 				<div class="modal-body" id="modalFormBody">
 					<div id="embeddedNotification" style="display:none;"></div>
 					<form id="formvalidate" action="" method="post" class="form-horizontal" enctype="multipart/form-data" novalidate="novalidate">
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Name <span class="asterisk">*</span></label>
+							<label class="col-sm-2 control-label">Company Name <span class="asterisk">*</span></label>
 							<div class="col-sm-10">
-								<input type="text" id="name" name="name" value="" class="form-control" required="true"/>
-								<label class="error" for="name"></label>
+								<input type="text" id="companyName" name="companyName" value="" class="form-control" required="true"/>
+								<label class="error" for="companyName"></label>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Age <span class="asterisk">*</span></label>
+							<label class="col-sm-2 control-label">Email <span class="asterisk">*</span></label>
 							<div class="col-sm-10">
-								<input type="text" id="age" name="age" value="" class="form-control" required="true"/>
-								<label class="error" for="age"></label>
+								<input type="text" id="email" name="email" value="" class="form-control" required="true"/>
+								<label class="error" for="email"></label>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Occupation <span class="asterisk">*</span></label>
+							<label class="col-sm-2 control-label">Phone 1<span class="asterisk">*</span></label>
 							<div class="col-sm-10">
-								<input type="text" id="occupation" name="occupation" value="" class="form-control" required="true"/>
-								<label class="error" for="occupation"></label>
+								<input type="phone" id="phone" name="phone" value="" class="form-control" required="true"/>
+								<label class="error" for="phone"></label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Phone 2<span class="asterisk">*</span></label>
+							<div class="col-sm-10">
+								<input type="phone" id="phone2" name="phone2" value="" class="form-control" required="true"/>
+								<label class="error" for="phone2"></label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Address</label>
+							<div class="col-sm-10">
+								<textarea id="address" name="address" class="wysihtml5text" required="true" style="width:100%" />
+								<label class="error" for="address"></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Content</label>
 							<div class="col-sm-10">
-								<textarea id="content" name="content" required="true" style="width:100%" />
+								<textarea id="content" name="content" class="wysihtml5text" required="true" style="width:100%" />
 								<label class="error" for="content"></label>
 							</div>
 						</div>
@@ -66,7 +79,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Avatar</label>
+							<label class="col-sm-2 control-label">Logo</label>
 							<div class="col-sm-2 avatar-preview">
 								<img id="avatar-image" style="width:80%;padding:3px;border:thin solid #dddddd;border-radius:5px;" />
 							</div>
@@ -89,34 +102,6 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Background</label>
-							<div class="col-sm-10">
-								<img id="background-image" style="width:80%;padding:3px;border:thin solid #dddddd;border-radius:5px;" />
-								<div id="background-image-fileupload" class="fileupload fileupload-new" data-provides="fileupload">
-									<div class="input-append">
-										<div class="uneditable-input">
-											<i class="glyphicon glyphicon-file fileupload-exists"></i>
-											<span class="fileupload-preview background-image-preview"></span>
-										</div>
-										<span class="btn btn-default btn-file">
-											<span class="fileupload-new">Select file</span>
-											<span class="fileupload-exists">Change</span>
-											<input type="file" id="imageBackground" name="imageBackground"/>
-										</span>
-										<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-									</div>
-									<label class="error" for="imageBackground"></label>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Primary <span class="asterisk">*</span></label>
-							<div class="col-sm-1">
-								<input type="checkbox" id="prime" name="prime" value="true" class="form-control" style="margin-top:12px;"/>
-								<label class="error" for="prime"></label>
-							</div>
-						</div>
-						<div class="form-group">
 							<label class="col-sm-2 control-label">Approval <span class="asterisk">*</span></label>
 							<div class="col-sm-1">
 								<input type="checkbox" id="approval" name="approval" value="true" class="form-control" style="margin-top:12px;"/>
@@ -129,10 +114,10 @@
 								<button type="reset" class="btn btn-default" id="btn-cancel">Cancel</button>
 							</div>
 						</div>
-						<input type="hidden" id="idTestimonial" name="idTestimonial" value="" />
+						<input type="hidden" id="id" name="id" value="" />
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- End Testimonial Form-->
+	<!-- End Partner Form-->

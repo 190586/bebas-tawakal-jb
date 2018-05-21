@@ -7,7 +7,7 @@
 					<th>No</th>
 					<th>Title</th>
 					<th>Type</th>
-					<th>Short Description</th>
+					<th>Description</th>
 					<th>Order</th>
 					<th>Status</th>
 					<th>Action</th>
@@ -42,13 +42,16 @@
 					  <label class="col-sm-2 control-label">Type <span class="asterisk">*</span></label>
 					  <div class="col-sm-9">
 						<select id="type" name="type" class="form-control chosen-select" required="true">
-						   <option value="CAROUSEL">CAROUSEL</option>
-						   <option value="STATIC-RIGHT">STATIC-RIGHT</option>
-						   <option value="FIRST-MENU">FIRST-MENU</option>
-						   <option value="SECONDARY-MENU">SECONDARY-MENU</option>
-						   <option value="MOBILE-MENU">MOBILE-MENU</option>
-						   <option value="FOOTER-LEFT">FOOTER-LEFT</option>
-						   <option value="FOOTER-RIGHT">FOOTER-RIGHT</option>
+						   <option value="TOP-MENU">TOP-MENU</option>
+						   <option value="HOME-SLIDER">HOME-SLIDER</option>
+						   <option value="PARTNER-SECTION">PARTNER-SECTION</option>
+						   <option value="STEP-SECTION">STEP-SECTION</option>
+						   <option value="PACKAGE-SECTION">PACKAGE-SECTION</option>
+						   <option value="DONATION-SECTION">DONATION-SECTION</option>
+						   <option value="FOOTER-FIRST-SECTION">FOOTER-FIRST-SECTION</option>
+						   <option value="FOOTER-SECOND-SECTION">FOOTER-SECOND-SECTION</option>
+						   <option value="FOOTER-ACTION-SECTION">FOOTER-ACTION-SECTION</option>
+						   <option value="FOOTER-IDENTITY-SECTION">FOOTER-IDENTITY-SECTION</option>
 						</select>
 						<label class="error" for="type"></label>
 					  </div>
@@ -138,7 +141,7 @@
 						<label class="error" for="active"></label>
 					  </div>
 					</div>
-					<input type="hidden" id="idMenu" name="idMenu" value="" />
+					<input type="hidden" id="id" name="id" value="" />
 					<div class="form-group">
 						<div class="col-sm-offset-8 col-sm-12">
 							<button type="submit" class="btn btn-primary">Submit</button>

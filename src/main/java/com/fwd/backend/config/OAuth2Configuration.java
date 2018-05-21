@@ -50,16 +50,18 @@ public class OAuth2Configuration {
                     .logoutUrl("/oauth/logout")
                     .logoutSuccessHandler(customLogoutSuccessHandler)
                     .and()
+                    /*
                     .csrf()
                     .requireCsrfProtectionMatcher(new AntPathRequestMatcher("/oauth/authorize"))
                     .disable()
                     .headers()
                     .frameOptions().disable()
+                    */
                     .sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     .and()
                     .authorizeRequests()
-                    .antMatchers("/hello/").permitAll()
+                    .antMatchers("/home/**").permitAll()
                     .antMatchers("/api/**").authenticated();
 
         }

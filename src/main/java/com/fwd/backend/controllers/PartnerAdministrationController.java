@@ -1,8 +1,6 @@
 package com.fwd.backend.controllers;
 
 import static com.fwd.backend.controllers.MenuAdministrationController.MENU_IMAGE_PATH;
-import com.fwd.backend.domain.Menu;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +14,7 @@ import com.fwd.backend.util.RF;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class PartnerAdministrationController {
 
     @Autowired
-    private PartnerRepository partnerRepository;
+    Environment environment;
+    
+    @Autowired
+    PartnerRepository partnerRepository;
 
     @RequestMapping(value = "/partnercustom", method = RequestMethod.POST)
     @ResponseBody
@@ -70,7 +72,7 @@ public class PartnerAdministrationController {
 
         Partner partner = partnerRepository.findOne(id);
         if (partner.getAvatarPath() != null && !partner.getAvatarPath().isEmpty() && request.isAvatarPathChanged()) {
-            String pathImageHeader = ImageUtil.PATH_UPLOAD + partner.getAvatarPath();
+            String pathImageHeader = environment.getProperty("fwd.path.image") + partner.getAvatarPath();
             ImageUtil.deleteFile(pathImageHeader);
         }
 
@@ -107,7 +109,7 @@ public class PartnerAdministrationController {
 
         Partner partner = partnerRepository.findOne(id);
         if (partner.getAvatarPath() != null && !partner.getAvatarPath().isEmpty()) {
-            String pathImageHeader = ImageUtil.PATH_UPLOAD + partner.getAvatarPath();
+            String pathImageHeader = environment.getProperty("fwd.path.image") + partner.getAvatarPath();
             ImageUtil.deleteFile(pathImageHeader);
         }
 

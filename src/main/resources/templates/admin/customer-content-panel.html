@@ -5,11 +5,9 @@
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>Avatar</th>
 						<th>Name</th>
-						<th>Age</th>
-						<th>Website</th>
-						<th>Content</th>
+						<th>Email</th>
+						<th>Phone</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -20,16 +18,17 @@
 		<!-- end table-responsive -->
 	</div>
 	<!-- Testimonial Form -->
-	<div class="modal fade" id="testimonialModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="customerModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" id="modalFormHeader">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Edit Testimonial</h4>
+					<h4 class="modal-title">Edit Customer</h4>
 				</div>
 				<div class="modal-body" id="modalFormBody">
 					<div id="embeddedNotification" style="display:none;"></div>
-					<form id="formvalidate" action="" method="post" class="form-horizontal" enctype="multipart/form-data" novalidate="novalidate">
+					<!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
+					<form id="formvalidate" action="" method="post" class="form-horizontal" novalidate="novalidate">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Name <span class="asterisk">*</span></label>
 							<div class="col-sm-10">
@@ -38,82 +37,17 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Age <span class="asterisk">*</span></label>
+							<label class="col-sm-2 control-label">Email <span class="asterisk">*</span></label>
 							<div class="col-sm-10">
-								<input type="text" id="age" name="age" value="" class="form-control" required="true"/>
-								<label class="error" for="age"></label>
+								<input type="text" id="email" name="email" value="" class="form-control" required="true"/>
+								<label class="error" for="email"></label>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Occupation <span class="asterisk">*</span></label>
+							<label class="col-sm-2 control-label">Phone <span class="asterisk">*</span></label>
 							<div class="col-sm-10">
-								<input type="text" id="occupation" name="occupation" value="" class="form-control" required="true"/>
-								<label class="error" for="occupation"></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Content</label>
-							<div class="col-sm-10">
-								<textarea id="content" name="content" required="true" style="width:100%" />
-								<label class="error" for="content"></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Website <span class="asterisk">*</span></label>
-							<div class="col-sm-10">
-								<input type="text" id="website" name="website" value="" class="form-control" required="true"/>
-								<label class="error" for="website"></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Avatar</label>
-							<div class="col-sm-2 avatar-preview">
-								<img id="avatar-image" style="width:80%;padding:3px;border:thin solid #dddddd;border-radius:5px;" />
-							</div>
-							<div class="col-sm-8">
-								<div class="fileupload fileupload-new" data-provides="fileupload">
-									<div class="input-append">
-										<div class="uneditable-input">
-											<i class="glyphicon glyphicon-file fileupload-exists"></i>
-											<span class="fileupload-preview"></span>
-										</div>
-										<span class="btn btn-default btn-file">
-											<span class="fileupload-new">Select file</span>
-											<span class="fileupload-exists">Change</span>
-											<input type="file" id="avatar" name="avatar"/>
-										</span>
-										<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-									</div>
-									<label class="error" for="avatar"></label>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Background</label>
-							<div class="col-sm-10">
-								<img id="background-image" style="width:80%;padding:3px;border:thin solid #dddddd;border-radius:5px;" />
-								<div id="background-image-fileupload" class="fileupload fileupload-new" data-provides="fileupload">
-									<div class="input-append">
-										<div class="uneditable-input">
-											<i class="glyphicon glyphicon-file fileupload-exists"></i>
-											<span class="fileupload-preview background-image-preview"></span>
-										</div>
-										<span class="btn btn-default btn-file">
-											<span class="fileupload-new">Select file</span>
-											<span class="fileupload-exists">Change</span>
-											<input type="file" id="imageBackground" name="imageBackground"/>
-										</span>
-										<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-									</div>
-									<label class="error" for="imageBackground"></label>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Primary <span class="asterisk">*</span></label>
-							<div class="col-sm-1">
-								<input type="checkbox" id="prime" name="prime" value="true" class="form-control" style="margin-top:12px;"/>
-								<label class="error" for="prime"></label>
+								<input type="text" id="phone" name="phone" value="" class="form-control" required="true"/>
+								<label class="error" for="phone"></label>
 							</div>
 						</div>
 						<div class="form-group">
@@ -129,7 +63,7 @@
 								<button type="reset" class="btn btn-default" id="btn-cancel">Cancel</button>
 							</div>
 						</div>
-						<input type="hidden" id="idTestimonial" name="idTestimonial" value="" />
+						<input type="hidden" id="id" name="id" value="" />
 					</form>
 				</div>
 			</div>

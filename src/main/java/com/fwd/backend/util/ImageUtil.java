@@ -6,16 +6,16 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
-import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import sun.misc.BASE64Decoder;
 
 public class ImageUtil {
 
     @Autowired
     private static Environment environment;
-    
+
     public static String UPLOAD_IMAGE_TYPE = "png";
-    public static String PATH_UPLOAD = environment.getProperty("fwd.path.image");
 
     public static void createImage(String image, String filename) {
         String fileType = UPLOAD_IMAGE_TYPE;
@@ -31,11 +31,11 @@ public class ImageUtil {
     }
 
     public static BufferedImage decodeToImage(String imageString) {
-
         BufferedImage image = null;
         byte[] imageByte;
         try {
-            imageByte = DatatypeConverter.parseBase64Binary(imageString);
+            BASE64Decoder decoder = new BASE64Decoder();
+            imageByte = decoder.decodeBuffer(imageString);
             ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
             image = ImageIO.read(bis);
             bis.close();

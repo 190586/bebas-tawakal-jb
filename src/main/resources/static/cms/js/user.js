@@ -7,7 +7,7 @@ var User = function() {
 		initialize : function() {
 			var _this = this;
 			Login.auth(function() {
-				$('.contentpanel').load('/admin/users-content-panel', function() {
+				$('.contentpanel').load('admin/user-content-panel', function() {
 					$('.sub-menu-user').addClass('active');
 					$('.pageheader-h2-icon').attr('class', 'pageheader-h2-icon');
 					$('.pageheader-h2-icon').addClass('fa fa-users');
@@ -23,36 +23,40 @@ var User = function() {
 						evt.preventDefault();
 						$('#userModalForm').modal('hide');
 					});
-					_this.loadUser();
+					_this.load();
 				});
 			});
 		},
-		loadUser : function() {
-			var urlGetImage = '/public/images';
+		load : function() {
+			var urlGetImage = 'public/images';
 			if($('#datatable1').length) {
 				var _this = this;
 				$('#datatable1').dataTable().fnDestroy();
 				$('#datatable1').show();
 				$('#datatable1').dataTable({
-					'sAjaxSource' : '/api/users',
+					'sAjaxSource' : 'api/users',
 					'sAjaxDataProp' : '_embedded.users',
 					'aoColumns' : [ 
-						{ 'mData': null },
-						{ 'mData': 'username' },
-						{ 'mData': 'fullname' },
-						{ 'mData': 'role' },
+						{ 'mData': null, 'sWidth' : '5%' },
 						{ 'mData': null, 'mRender': function (data, type, row) {
 								var img = '<div align="center"><img src="'+ urlGetImage+'?path='+row.avatarPath +'" style="padding:3px;border:thin solid #dddddd;border-radius:5px;"></div>';
 								return img;
 							}
 						},
+						{ 'mData': 'username' },
+						{ 'mData': 'fullname' },
+						{ 'mData': 'role' },
+						{ 'mData': null, 'mRender' : function(data, type, row) {
+								return row.active ? 'Active' : 'Inactive';
+							}
+						},
 						{ 'mData': null, 'mRender': function (data, type, row) {
 								var hrefs = row._links.self.href.split('/');
 								var id = hrefs[hrefs.length - 1];
-								var action = '<a onclick="User.detailUser('+ id +')">Edit</a>';
-								action += '&nbsp;|&nbsp;<a href="#" onclick="if(confirm(\'Are you sure?\')) {User.deleteUser('+ id +');}">Delete</a>';
+								var action = '<a onclick="User.detail('+ id +')">Edit</a>';
+								action += '&nbsp;|&nbsp;<a href="#" onclick="if(confirm(\'Are you sure?\')) {User.delete('+ id +');}">Delete</a>';
 								return action;
-							}, "bSortable" : false
+							}, 'bSortable' : false
 						}
 					],
 					'bServerSide' : true,
@@ -102,7 +106,7 @@ var User = function() {
 			//if we are searching by name, override the url and add the name parameter
 			var url = sSource;
 			if (paramMap.sSearch != '') {
-				url = '/api/users/search/all';
+				url = 'api/users/search/all';
 				restParams.push({ "name" : "q", "value" :  paramMap.sSearch});
 			}
 			
@@ -144,7 +148,7 @@ var User = function() {
 			
 			var id = data.idUser;
 			var type = id === '' ? 'POST' : 'PUT';
-			var url = id === '' ? '/api/usercustom' : '/api/usercustom/'+ id;
+			var url = id === '' ? 'api/usercustom' : 'api/usercustom/'+ id;
 			var imagePath = $('#avatar')[0];
 			var types = new Array('image/jpg', 'image/jpeg', 'image/png');
 			if(imagePath.files.length && $.inArray(imagePath.files[0].type, types) === -1) {
@@ -169,10 +173,14 @@ var User = function() {
 							xhr.setRequestHeader('Authorization', 'Bearer ' + token); 
 						},
 						'success' : function(data) {
-							$('#userModalForm').modal('hide');
-							Notification.show('success', 'User saved successfully', function(){
-								_this.loadUser();
-							});
+							if(data.RESULTS) {
+								$('#userModalForm').modal('hide');
+								Notification.show('success', 'User saved successfully', function(){
+									_this.load();
+								});
+							} else {
+								Notification.show('danger', 'Failed to save user');
+							}
 						},					
 						'error' : function(data) {				
 							if(data.status == 401) {
@@ -202,8 +210,8 @@ var User = function() {
 			Notification.hide();
 			$('#userModalForm').modal('show');
 		},
-		detailUser : function(id) {
-			var url = '/api/users/'+ id;
+		detail : function(id) {
+			var url = 'api/users/'+ id;
 			var token = Login.checkLS() ? localStorage.getItem('t') : $.cookie('t');
 			$.ajax({
 				'dataType' : 'json',
@@ -226,7 +234,7 @@ var User = function() {
 					$('#role').val(data.role);
 					$('#role').trigger('chosen:updated');
 					if(data.avatarPath != null && data.avatarPath !== '') {
-						$('#avatar-image').attr('src', '/public/images?path='+ data.avatarPath);
+						$('#avatar-image').attr('src', 'public/images?path='+ data.avatarPath);
 						$('.avatar-preview').css('display', 'block');
 						$('#avatar-fileupload').attr('class', 'fileupload fileupload-new');
 						$('.fileupload-preview').html('');
@@ -250,9 +258,9 @@ var User = function() {
 				}
 			});
 		},
-		deleteUser : function(id) {
+		delete : function(id) {
 			var _this = this;
-			var url = '/api/users/'+ id;
+			var url = 'api/users/'+ id;
 			var token = Login.checkLS() ? localStorage.getItem('t') : $.cookie('t');
 			$.ajax({
 				'dataType' : 'json',
@@ -264,7 +272,7 @@ var User = function() {
 				},
 				'success' : function(data) {
 					Notification.show('success', 'User deleted successfully');
-					_this.loadUser();
+					_this.load();
 				},
 				'error' : function(data) {				
 					if(data.status == 401) {

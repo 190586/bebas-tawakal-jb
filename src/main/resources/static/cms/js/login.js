@@ -27,12 +27,12 @@ var Login = function () {
 				}
 				$('.my-role').html(role);
 				$('.my-fullname').html(fullname);
-				$('.my-avatar-path').attr('src', '/public/images?path='+ avatarPath);
+				$('.my-avatar-path').attr('src', 'public/images?path='+ avatarPath);
 				$('.sign-out-button').on('click', function(evt){
 					evt.preventDefault();
 					_this.logout();
 				});
-				Testimonial.loadNotification();
+				Partner.loadNotification();
 				this.loadModule();
 			}
 		},
@@ -61,7 +61,7 @@ var Login = function () {
 				$.removeCookie('u');
 				$.removeCookie('ava');
 			}
-			window.location = '/login';
+			window.location = 'login';
 		},
 		auth: function(callback) {
 			if(this.checkLS()) {
@@ -75,13 +75,13 @@ var Login = function () {
 					return;
 				} 
 			}
-			window.location = '/login';
+			window.location = 'login';
 		},
 		login: function() {
 			var _this = this;
 			$('#login-warning').hide();
 			$('#login-button').attr('disabled', true);
-			var home = '/admin';
+			var home = 'admin';
 			var username = $('#username').val();
 			var password = $('#password').val();
 			var url = 'oauth/token?grant_type=password&username='+ username +'&password='+ password;
@@ -145,20 +145,14 @@ var Login = function () {
 				$(this).removeClass('active');
 			});
 			switch(module) {
-				case 'pages' : 
-					Pages.initialize(false);
+				case 'customer' : 
+					Customer.initialize();
 					break;
-				case 'addpage' : 
-					Pages.initialize(true);
+				case 'partner' : 
+					Partner.initialize();
 					break;	
-				case 'testimonial' : 
-					Testimonial.initialize();
-					break;
 				case 'menu' :
 					Menu.initialize();
-					break;
-				case 'profile' :
-					Profile.initialize();
 					break;
 				case 'myprofile' :
 					Profile.initialize();

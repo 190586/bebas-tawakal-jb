@@ -12,6 +12,7 @@ import java.util.Map;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,9 @@ public class MenuAdministrationController {
 
     public final static String MENU_IMAGE_PATH = "image/";
 
+    @Autowired
+    Environment environment;
+    
     @Autowired
     MenuRepository menuRepository;
 
@@ -70,7 +74,7 @@ public class MenuAdministrationController {
 
         Menu menu = menuRepository.findOne(id);
         if (menu.getImagePath() != null && !menu.getImagePath().isEmpty() && request.isImagePathChanged()) {
-            String pathImageHeader = ImageUtil.PATH_UPLOAD + menu.getImagePath();
+            String pathImageHeader = environment.getProperty("fwd.path.image") + menu.getImagePath();
             ImageUtil.deleteFile(pathImageHeader);
         }
 
@@ -107,7 +111,7 @@ public class MenuAdministrationController {
 
         Menu menu = menuRepository.findOne(id);
         if (menu.getImagePath() != null && !menu.getImagePath().isEmpty()) {
-            String pathImageHeader = ImageUtil.PATH_UPLOAD + menu.getImagePath();
+            String pathImageHeader = environment.getProperty("fwd.path.image") + menu.getImagePath();
             ImageUtil.deleteFile(pathImageHeader);
         }
 
