@@ -56,6 +56,9 @@ public class Partner {
 
     @Column(name = "content", length = 50000)
     private String content;
+    
+    @Column(name = "website", length = 300)
+    private String website;
 
     public Long getId() {
         return id;
@@ -153,6 +156,12 @@ public class Partner {
         this.content = content;
     }
     
-    
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
 
 }
