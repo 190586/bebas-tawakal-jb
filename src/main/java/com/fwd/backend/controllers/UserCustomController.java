@@ -89,6 +89,7 @@ public class UserCustomController {
             resp.put(RF.RESPONSE_CODE, RC.SUCCESS);
             resp.put(RF.RESPONSE_MESSAGE, RC.SUCCESS_DESC);
         } catch (Exception ex) {
+            ex.printStackTrace();
             resp.put(RF.RESPONSE_CODE, RC.UNKNOWN_FAIL);
             resp.put(RF.RESPONSE_MESSAGE, RC.UNKNOWN_FAIL_DESC);
         }

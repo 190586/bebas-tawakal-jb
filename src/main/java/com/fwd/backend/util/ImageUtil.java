@@ -19,7 +19,8 @@ public class ImageUtil {
 
     public static void createImage(String image, String filename) {
         String fileType = UPLOAD_IMAGE_TYPE;
-        String path = environment.getProperty("fwd.path.image");
+//        String path = environment.getProperty("fwd.path.image");
+        String path = GlobalValue.PATH_IMAGE;
         try {
             BufferedImage bufImg = decodeToImage(image);
             File imgOutFile = new File(path + filename);
