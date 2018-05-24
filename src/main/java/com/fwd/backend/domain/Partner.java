@@ -24,13 +24,13 @@ public class Partner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "address", length = 255)
+    @Column(name = "address", length = 1000)
     private String address;
 
     @Column(name = "approval")
     private Boolean approval;
 
-    @Column(name = "avatar_path", length = 255)
+    @Column(name = "avatar_path", length = 1000)
     private String avatarPath;
     
     @Transient
