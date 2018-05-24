@@ -15,10 +15,7 @@ var Menu = function() {
 					$('.pageheader-module').html('Menu');
 					$('.chosen-select').chosen({ width: '100%' });
 					$('#orders').spinner({ min: 1, max: 150 });
-					$('#shortDescription').wysihtml5({
-						'stylesheets': []
-					});
-					$('#description').wysihtml5({
+					$('.wysihtml5text').wysihtml5({
 						'stylesheets': []
 					});
 					$('#formvalidate').validate({
@@ -152,7 +149,6 @@ var Menu = function() {
 			var _this = this;
 			var data = {};
 			$(form).serializeArray().map(function(x){data[x.name] = x.value;});
-			
 			var id = data.id;
 			var type = id === '' ? 'POST' : 'PUT';
 			var url = id === '' ? 'api/menucustom' : 'api/menucustom/'+ id;
@@ -218,7 +214,7 @@ var Menu = function() {
 				$('#menu-image').css('display', 'none');
 				$('#menu-image').attr('src', '');
 				$('#orders').val('1');
-				$('#dataHref').attr('checked', false);
+				$('#dataHref').val('false');
 				$('#startTime').val('');
 				$('#endTime').val('');
 				$('#active').val('true');
@@ -261,7 +257,8 @@ var Menu = function() {
 							$('#menu-image').attr('src', '');
 						}
 						$('#orders').val(data.orders);
-						$('#dataHref').attr('checked', data.dataHref);
+						$('#dataHref').val(data.dataHref ? 'true' : 'false');
+						$('#dataHref').trigger('chosen:updated');
 						$('#startTime').val(data.startTime.substring(0, 10));
 						$('#endTime').val(data.endTime.substring(0, 10));
 						$('#active').val(data.active ? 'true' : 'false');

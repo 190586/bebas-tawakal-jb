@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import sun.misc.BASE64Decoder;
 
 public class ImageUtil {
 
