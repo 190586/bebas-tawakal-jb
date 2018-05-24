@@ -151,7 +151,6 @@ var Partner = function() {
 			var _this = this;
 			var data = {};
 			$(form).serializeArray().map(function(x){data[x.name] = x.value;});
-			
 			var id = data.id;
 			var avatar = $('#avatar')[0];
 			var types = new Array('image/jpg', 'image/jpeg', 'image/png');
