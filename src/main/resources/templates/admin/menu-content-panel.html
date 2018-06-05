@@ -85,8 +85,11 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Image</label>
-						<div class="col-sm-10">
+						<label class="col-sm-2 control-label">Image/Icon</label>
+						<div class="col-sm-2">
+							<input type="checkbox" id="imageOption" style="margin-top:12px;"/> class
+						</div>
+						<div class="col-sm-8">
 							<img id="menu-image" style="width:80%;padding:3px;border:thin solid #dddddd;border-radius:5px;" />
 							<div id="menu-image-fileupload" class="fileupload fileupload-new" data-provides="fileupload">
 								<div class="input-append">
@@ -103,6 +106,10 @@
 								</div>
 								<label class="error" for="image"></label>
 							</div>
+						</div>
+						<div class="col-sm-8 hidden">
+							<input type="text" id="iconPath" name="iconPath" value="" class="form-control" />
+							<label class="error" for="iconPath"></label>
 						</div>
 					</div>
 					<div class="form-group">

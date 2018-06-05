@@ -1,13 +1,11 @@
 package com.fwd.backend.controllers;
 
-import com.fwd.backend.domain.Customer;
 import com.fwd.backend.domain.Menu;
 import com.fwd.backend.repository.MenuRepository;
 import com.fwd.backend.util.ImageUtil;
 import com.fwd.backend.util.RC;
 import com.fwd.backend.util.RF;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -54,7 +52,9 @@ public class MenuAdministrationController {
                 ImageUtil.createImage(request.getImagePath(), pathHeader);
                 request.setImagePath(pathHeader);
             }
-
+            if(request.getIconPath() != null && !"".equalsIgnoreCase(request.getIconPath())) {
+                request.setImagePath(request.getIconPath());
+            }
             menuRepository.save(request);
             boolean success = true;
             resp.put(RF.RESULTS, success);
@@ -91,7 +91,9 @@ public class MenuAdministrationController {
             } else {
                 request.setImagePath(menu.getImagePath());
             }
-
+            if(request.getIconPath() != null && !"".equalsIgnoreCase(request.getIconPath())) {
+                request.setImagePath(request.getIconPath());
+            }
             menuRepository.save(request);
             boolean success = true;
             resp.put(RF.RESULTS, success);

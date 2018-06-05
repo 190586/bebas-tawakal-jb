@@ -55,7 +55,15 @@ var Partner = function() {
 							}
 						},
 						{ 'mData': 'address' },
-						{ 'mData': 'content' },
+						{ 'mData': null, 'mRender': function(data, type, row){
+								var hrefs = row._links.self.href.split('/');
+								var id = hrefs[hrefs.length - 1];
+								var cutIdx = _this.getPosition(row.content, '.', 3);
+								var hiddenContent = '<span id="complete-'+ id +'" class="hidden">'+ row.content.substring(cutIdx) +'</span>';
+								var button = ' <a href="#" id="read-more-'+ id +'" onclick="Partner.readMore('+ id +');" style="cursor:pointer;">read more...</a>';
+								return row.content.length > cutIdx ? (row.content.substring(0, cutIdx) + hiddenContent + button) : row.content;
+							}
+						},
 						{ 'mData': null, 'mRender': function (data, type, row) {
 								var hrefs = row._links.self.href.split('/');
 								var id = hrefs[hrefs.length - 1];
@@ -309,7 +317,7 @@ var Partner = function() {
 					if(total > 0) {
 						$('.header-notification-badge').html(total);
 						$.map(data._embedded.partner, function(val, i) {
-							contents += '<li class="new"><a onclick="Login.loadModule(\'partner\');"><span class="thumb"><img src="public/images?path='+ val.avatarPath +'" alt="" /></span><span class="desc"><span class="name">'+ val.name +' ('+ val.age +')<span class="badge badge-success">new</span></span><span class="msg">'+ val.occupation +'</span></span></a></li>';
+							contents += '<li class="new"><a onclick="Login.loadModule(\'partner\');"><span class="thumb"><img src="public/images?path='+ val.avatarPath +'" alt="" /></span><span class="desc"><span class="name">'+ val.companyName +' ('+ val.website +')<span class="badge badge-success">new</span></span><span class="msg">'+ val.email +'</span></span></a></li>';
 						});
 						contents += '<li class="new"><a onclick="Login.loadModule(\'partner\');">See All New Partners</a></li>';
 						$('.header-notification-list').html(contents);
@@ -345,6 +353,18 @@ var Partner = function() {
 				reader.readAsDataURL(imageToRead);
 			} else {
 				callback();
+			}
+		},
+		getPosition : function(string, subString, index) {
+			return string.split(subString, index).join(subString).length;
+		},
+		readMore : function(id) {
+			if($('#complete-'+ id).hasClass('hidden')) {
+				$('#complete-'+ id).removeClass('hidden');
+				$('#read-more-'+ id).html('hide...');
+			} else {
+				$('#complete-'+ id).addClass('hidden');
+				$('#read-more-'+ id).html('read more...');
 			}
 		}
 	}

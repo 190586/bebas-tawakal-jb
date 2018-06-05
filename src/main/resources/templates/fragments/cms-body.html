@@ -21,70 +21,49 @@
                 <img alt="" src="" class="media-object my-avatar-path"/>
                 <div class="media-body">
                     <h4 class="my-fullname" />
-					<span class="my-role" />
+                    <span class="my-role" />
                 </div>
             </div>
-            <h5 class="sidebartitle actitle">Account</h5>
+            <h5 class="sidebartitle actitle">Navigation</h5>
             <ul class="nav nav-pills nav-stacked nav-bracket mb30">
-				<!--<li><a href="Login.loadModule('myprofile')"><i class="fa fa-user"></i> <span>Profile</span></a></li>-->
-				<!--<li><a href="#"><i class="fa fa-cog"></i> <span>Account Settings</span></a></li>-->
-				<li><a href="#" class="sign-out-button"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+		<li class="sub-menu sub-menu-dashboard"><a onclick="Login.loadModule();"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+                <li class="sub-menu sub-menu-menu"><a onclick="Login.loadModule('menu');"><i class="fa fa-tasks"></i><span>Menu</span></a></li>        
+                <li class="sub-menu sub-menu-customer"><a onclick="Login.loadModule('customer');"><i class="fa fa-user-circle"></i><span>Customer</span></a></li>
+		<li class="sub-menu sub-menu-partner"><a onclick="Login.loadModule('partner');"><i class="fa fa-handshake-o"></i><span>Partner</span></a></li>        
+                <li class="sub-menu sub-menu-user"><a onclick="Login.loadModule('user');"><i class="fa fa-users"></i><span>Users</span></a></li>
+                <li class=""><a href="#" class="sign-out-button"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
             </ul>
         </div>
-      
-      <h5 class="sidebartitle">Navigation</h5>
-      <ul class="nav nav-pills nav-stacked nav-bracket main-menu">
-        <li class="sub-menu sub-menu-dashboard">
-          <a onclick="Login.loadModule();">
-            <i class="fa fa-home"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-		<li class="sub-menu sub-menu-menu">
-          <a onclick="Login.loadModule('menu');">
-            <i class="fa fa-tasks"></i>
-            <span>Menu</span></a>
-        </li>        
-        <li class="sub-menu sub-menu-customer">
-          <a onclick="Login.loadModule('customer');">
-            <i class="fa fa-user-circle"></i>
-            <span>Customer</span></a>
-        </li>
-		<li class="sub-menu sub-menu-partner">
-          <a onclick="Login.loadModule('partner');">
-            <i class="fa fa-handshake-o"></i>
-            <span>Partner</span></a>
-        </li>        
-        <li class="sub-menu sub-menu-user">
-          <a onclick="Login.loadModule('user');">
-            <i class="fa fa-users"></i>
-            <span>Users</span></a>
-        </li>
-        <li class="">
-          <a href="#" class="sign-out-button">
-            <i class="fa fa-lock"></i>
-            <span>Log Out</span>
-          </a>
-        </li>
-      </ul>
-      
-      <div class="infosummary">
-        <h5 class="sidebartitle">Information Summary</h5>    
-        <ul>
-            <li>
-              <i class="glyphicon glyphicon-home mr5"></i> Gedung Pasific Century Place Lantai 20 SCBD
-            </li>
-            <li>
-              <i class="glyphicon glyphicon-phone mr5"></i> Jl. Jend. Sudirman Kav 52-53
-            </li>
-            <li>
-              <i class="glyphicon glyphicon-print mr5"></i> 021-1500393
-            </li>
-            <li>
-              <i class="glyphicon glyphicon-envelope mr5"></i> 
-            </li>
-        </ul>
-      </div><!-- infosummary -->
+        
+        <div class="hidden-xs visible-sm visible-md visible-lg">
+            <div class="media userlogged">
+                <img alt="" src="" class="media-object my-avatar-path"/>
+                <div class="media-body">
+                    <h4 class="my-fullname" />
+                    <span class="my-role" />
+                </div>
+            </div>
+            <h5 class="sidebartitle">Navigation</h5>
+            <ul class="nav nav-pills nav-stacked nav-bracket main-menu">
+                <li class="sub-menu sub-menu-dashboard"><a onclick="Login.loadModule();"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+                <li class="sub-menu sub-menu-menu"><a onclick="Login.loadModule('menu');"><i class="fa fa-tasks"></i><span>Menu</span></a></li>        
+                <li class="sub-menu sub-menu-customer"><a onclick="Login.loadModule('customer');"><i class="fa fa-user-circle"></i><span>Customer</span></a></li>
+		<li class="sub-menu sub-menu-partner"><a onclick="Login.loadModule('partner');"><i class="fa fa-handshake-o"></i><span>Partner</span></a></li>        
+                <li class="sub-menu sub-menu-user"><a onclick="Login.loadModule('user');"><i class="fa fa-users"></i><span>Users</span></a></li>
+                <li class=""><a href="#" class="sign-out-button"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
+            </ul>
+        </div>
+
+        <div class="infosummary">
+            <h5 class="sidebartitle">Information Summary</h5>    
+            <ul>
+                <li><i class="glyphicon glyphicon-home mr5"></i> Gedung Pacific Century Place Lantai 20 SCBD Jl. Jend. Sudirman Kav 52-53</li>
+                <li><i class="glyphicon glyphicon-phone mr5"></i> 021-1500393</li>
+                <!--<li><i class="glyphicon glyphicon-print mr5"></i> </li>-->
+                <!--<li><i class="glyphicon glyphicon-envelope mr5"></i></li>-->
+            </ul>
+      </div>
+      <!-- infosummary -->
       
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->

@@ -1,7 +1,6 @@
 package com.fwd.backend.repository;
 
 import com.fwd.backend.domain.Customer;
-import com.fwd.backend.domain.Partner;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;

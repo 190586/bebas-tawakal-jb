@@ -18,6 +18,62 @@ var Menu = function() {
 					$('.wysihtml5text').wysihtml5({
 						'stylesheets': []
 					});
+					$('#type').change(function() {
+						var showElms = '', hideElms = '';
+						switch($(this).val()) {
+							case 'TOP-MENU':
+								showElms = 'title';
+								hideElms = 'buttonText, description, shortDescription, menu-image-fileupload';
+								break;
+							case 'HOME-SLIDER':
+								showElms = 'menu-image-fileupload, title';
+								hideElms = 'buttonText, description, shortDescription';
+								break;
+							case 'PARTNER-SECTION':
+								showElms = 'description, menu-image-fileupload, title';
+								hideElms = 'buttonText, shortDescription';
+								break;
+							case 'STEP-SECTION':
+								showElms = 'description, menu-image-fileupload, title';
+								hideElms = 'buttonText, shortDescription';
+								break;
+							case 'PACKAGE-SECTION':
+								showElms = 'description, title';
+								hideElms = 'buttonText, menu-image-fileupload, shortDescription';
+								break;
+							case 'DONATION-SECTION':
+								showElms = 'description, menu-image-fileupload, title';
+								hideElms = 'buttonText, shortDescription';
+								break;
+							case 'FOOTER-FIRST-SECTION':
+								showElms = 'title';
+								hideElms = 'buttonText, description, menu-image-fileupload, shortDescription';
+								break;
+							case 'FOOTER-SECOND-SECTION':
+								showElms = 'title';
+								hideElms = 'buttonText, description, menu-image-fileupload, shortDescription';
+								break;
+							case 'FOOTER-ACTION-SECTION':
+								showElms = 'shortDescription, title';
+								hideElms = 'buttonText, description, menu-image-fileupload';
+								break;
+							case 'FOOTER-IDENTITY-SECTION':
+								showElms = 'menu-image-fileupload, shortDescription, title';
+								hideElms = 'buttonText, description';
+								break;
+						}
+						_this.showAllElements(showElms);
+						_this.hideAllElements(hideElms);
+					});
+					$('#imageOption').change(function() {
+						if($(this).attr('checked')) {
+							$('#menu-image').parent().addClass('hidden');
+							$('#iconPath').parent().removeClass('hidden');
+						} else {
+							$('#menu-image').parent().removeClass('hidden');
+							$('#iconPath').parent().addClass('hidden');
+						}
+					});
 					$('#formvalidate').validate({
 						submitHandler: function(form) {
 							_this.saveOrUpdate(form);
@@ -60,7 +116,7 @@ var Menu = function() {
 								var action = '<a onclick="Menu.detail('+ id +')">Edit</a>';
 								action += '&nbsp;|&nbsp;<a href="#" onclick="if(confirm(\'Are you sure?\')) {Menu.delete('+ id +');}">Delete</a>';
 								return action;
-							}, "bSortable" : false
+							}, 'bSortable' : false
 						}
 					],
 					'bServerSide' : true,
@@ -159,12 +215,7 @@ var Menu = function() {
 				$('label[for="image"]').css('display', 'block');
 			} else {
 				var token = Login.checkLS() ? localStorage.getItem('t') : $.cookie('t');
-				this.readImage(imagePath.files, function(result) {
-					if(typeof result !== 'undefined') {
-						data.imagePath = result.replace(/^data:image\/[a-z]+;base64,/, "");
-						data.imagePathChanged = true;
-					}
-					data = JSON.stringify(data);
+				var saving = function(data) {
 					$.ajax({
 						'dataType' : 'json',
 						'contentType' : 'application/json',
@@ -194,7 +245,22 @@ var Menu = function() {
 							}
 						}
 					});
-				});
+				}
+				if(!$('#imageOption').attr('checked')) {
+					this.readImage(imagePath.files, function(result) {
+						if(typeof result !== 'undefined') {
+							data.imagePath = result.replace(/^data:image\/[a-z]+;base64,/, "");
+							data.imagePathChanged = true;
+							data.iconPath = '';
+						}
+						data = JSON.stringify(data);
+						saving(data);
+					});
+				} else {
+					data.imagePath = '';
+					data = JSON.stringify(data);
+					saving(data);
+				}
 			}
 		},
 		detail : function(id) {
@@ -203,7 +269,7 @@ var Menu = function() {
 				$('#header-title').html('');
 				$('#id').val('');
 				$('#title').val('');
-				$('#type').val('CAROUSEL');
+				$('#type').val('');
 				$('#type').trigger('chosen:updated');
 				$('#shortDescription').data('wysihtml5').editor.setValue('');
 				$('#shortDescription').autogrow();
@@ -215,6 +281,7 @@ var Menu = function() {
 				$('#menu-image').attr('src', '');
 				$('#orders').val('1');
 				$('#dataHref').val('false');
+				$('#dataHref').trigger('chosen:updated');
 				$('#startTime').val('');
 				$('#endTime').val('');
 				$('#active').val('true');
@@ -321,6 +388,18 @@ var Menu = function() {
 				reader.readAsDataURL(imageToRead);
 			} else {
 				callback();
+			}
+		},
+		showAllElements : function(elms) {
+			var elmss = elms.split(',');
+			for(var i=0;i<elmss.length;i++) {
+				$('#'+ elmss[i].replace(/ /g,'')).parent().parent().show();
+			}
+		},
+		hideAllElements : function(elms) {
+			var elmss = elms.split(',');
+			for(var i=0;i<elmss.length;i++) {
+				$('#'+ elmss[i].replace(/ /g,'')).parent().parent().hide();
 			}
 		}
 	}

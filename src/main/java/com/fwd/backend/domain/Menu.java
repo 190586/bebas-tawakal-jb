@@ -53,7 +53,10 @@ public class Menu {
 
     @Transient
     private boolean imagePathChanged = false;
-
+    
+    @Transient
+    private String iconPath;
+    
     @Column(name = "orders")
     private int orders;
 
@@ -139,6 +142,14 @@ public class Menu {
 
     public void setImagePathChanged(boolean imagePathChanged) {
         this.imagePathChanged = imagePathChanged;
+    }
+    
+    public String getIconPath() {
+        return iconPath;
+    }
+
+    public void setIconPath(String iconPath) {
+        this.iconPath = iconPath;
     }
 
     public int getOrders() {

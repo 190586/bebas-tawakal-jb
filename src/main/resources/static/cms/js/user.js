@@ -39,7 +39,7 @@ var User = function() {
 					'aoColumns' : [ 
 						{ 'mData': null, 'sWidth' : '5%' },
 						{ 'mData': null, 'mRender': function (data, type, row) {
-								var img = '<div align="center"><img src="'+ urlGetImage+'?path='+row.avatarPath +'" style="padding:3px;border:thin solid #dddddd;border-radius:5px;"></div>';
+								var img = '<div align="center"><img src="'+ urlGetImage+'?path='+row.avatarPath +'" height="92px" width="92px" style="padding:3px;border:thin solid #dddddd;border-radius:5px;"></div>';
 								return img;
 							}
 						},
