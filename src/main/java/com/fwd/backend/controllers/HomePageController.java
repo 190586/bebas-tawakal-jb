@@ -36,24 +36,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"/home"})
 public class HomePageController {
-    
-     @Autowired
+
+    @Autowired
     private HomePageService homePageService;
-    
+
     @Autowired
     CustomerRepository customerRepository;
-    
+
     @Autowired
     PartnerRepository partnerRepository;
-    
+
     private static final Logger eventLogger = LoggerFactory.getLogger(CustomLogger.EVENT);
     private static final Logger errorLogger = LoggerFactory.getLogger(CustomLogger.ERROR);
-    
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        return "/home";
-    }
-    
+
     @RequestMapping(value = "/home-slider", method = {RequestMethod.GET})
     public ResponseEntity<?> getHomeSlider() {
         ResponseEntity<?> entity = null;
@@ -74,7 +69,7 @@ public class HomePageController {
 
         return entity;
     }
-    
+
     @RequestMapping(value = "/list-menus/{menuType}", method = {RequestMethod.GET})
     public ResponseEntity<?> getListMenus(@PathVariable String menuType) {
         ResponseEntity<?> entity = null;
@@ -95,7 +90,7 @@ public class HomePageController {
 
         return entity;
     }
-    
+
     @RequestMapping(value = "/add-customer", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> addCustomer(@RequestBody Customer request) {
@@ -116,7 +111,7 @@ public class HomePageController {
         entity = new ResponseEntity(resp, headers, HttpStatus.OK);
         return entity;
     }
-    
+
     @RequestMapping(value = "/add-partner", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> addPartner(@RequestBody Partner request) {
@@ -137,7 +132,7 @@ public class HomePageController {
         entity = new ResponseEntity(resp, headers, HttpStatus.OK);
         return entity;
     }
-    
+
     @RequestMapping(value = "/list-partner", method = {RequestMethod.GET})
     public ResponseEntity<?> getListPartner() {
         ResponseEntity<?> entity = null;
@@ -158,6 +153,5 @@ public class HomePageController {
 
         return entity;
     }
-    
-    
+
 }

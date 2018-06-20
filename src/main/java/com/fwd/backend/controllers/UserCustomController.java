@@ -59,6 +59,7 @@ public class UserCustomController {
             resp.put(RF.RESPONSE_CODE, RC.SUCCESS);
             resp.put(RF.RESPONSE_MESSAGE, RC.SUCCESS_DESC);
         } catch (Exception ex) {
+            ex.printStackTrace();
             resp.put(RF.RESPONSE_CODE, RC.UNKNOWN_FAIL);
             resp.put(RF.RESPONSE_MESSAGE, RC.UNKNOWN_FAIL_DESC);
         }
@@ -74,7 +75,7 @@ public class UserCustomController {
         headers.add("Content-Type", "application/json");
         Map<String, Object> resp = new HashMap();
         try {
-            if (request.getAvatarPath() != null && !request.getAvatarPath().isEmpty()) {
+            if (request.getAvatarPath() != null && !request.getAvatarPath().isEmpty() && request.isAvatarPathChanged()) {
                 String pathAvatar = AVATAR_IMAGE_PATH + RandomStringUtils.randomAlphanumeric(10) + "."
                         + ImageUtil.UPLOAD_IMAGE_TYPE;
                 ImageUtil.createImage(request.getAvatarPath(), pathAvatar);
@@ -103,7 +104,7 @@ public class UserCustomController {
 
         User user = userRepository.findOne(id);
 
-        if (user.getAvatarPath() != null && !user.getAvatarPath().isEmpty() && request.isAvatarChanged()) {
+        if (user.getAvatarPath() != null && !user.getAvatarPath().isEmpty() && request.isAvatarPathChanged()) {
             String pathIcons = environment.getProperty("fwd.path.image") + user.getAvatarPath();
             //delete image existing
             ImageUtil.deleteFile(pathIcons);
@@ -114,11 +115,13 @@ public class UserCustomController {
         headers.add("Content-Type", "application/json");
         Map<String, Object> resp = new HashMap();
         try {
-            if (request.getAvatarPath() != null && !request.getAvatarPath().isEmpty() && request.isAvatarChanged()) {
+            if (request.getAvatarPath() != null && !request.getAvatarPath().isEmpty() && request.isAvatarPathChanged()) {
                 String pathAvatar = AVATAR_IMAGE_PATH + RandomStringUtils.randomAlphanumeric(10) + "."
                         + ImageUtil.UPLOAD_IMAGE_TYPE;
                 ImageUtil.createImage(request.getAvatarPath(), pathAvatar);
                 request.setAvatarPath(pathAvatar);
+            } else {
+                request.setAvatarPath(request.getAvatarPath());
             }
             if (request.getPassword().equalsIgnoreCase("*******")) {
                 request.setPassword(user.getPassword());
@@ -132,6 +135,7 @@ public class UserCustomController {
             resp.put(RF.RESPONSE_CODE, RC.SUCCESS);
             resp.put(RF.RESPONSE_MESSAGE, RC.SUCCESS_DESC);
         } catch (Exception ex) {
+            ex.printStackTrace();
             resp.put(RF.RESPONSE_CODE, RC.UNKNOWN_FAIL);
             resp.put(RF.RESPONSE_MESSAGE, RC.UNKNOWN_FAIL_DESC);
         }

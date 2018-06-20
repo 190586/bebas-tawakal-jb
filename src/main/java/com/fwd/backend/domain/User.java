@@ -37,7 +37,7 @@ public class User  {
     private boolean active;
     
     @Transient
-    private boolean avatarChanged = false;
+    private boolean avatarPathChanged = false;
 
     public User() {
 
@@ -99,12 +99,12 @@ public class User  {
         this.fullname = fullname;
     }
 
-    public boolean isAvatarChanged() {
-        return avatarChanged;
+    public boolean isAvatarPathChanged() {
+        return avatarPathChanged;
     }
 
-    public void setAvatarChanged(boolean avatarChanged) {
-        this.avatarChanged = avatarChanged;
+    public void setAvatarChanged(boolean avatarPathChanged) {
+        this.avatarPathChanged = avatarPathChanged;
     }
 
 }

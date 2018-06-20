@@ -80,17 +80,17 @@ var Partner = function() {
 						var page = aData.pageNum;
 						var index = (page * size + (iDisplayIndex +1));
 						$('td:eq(0)', nRow).html(index);
-						if (aData.prime){
-							$(nRow).css({'background-color':'#001122'});
+						if (!aData.approval){
+							$(nRow).css({'background-color':'#ffcccc'});
 						}
 						
 						return nRow;
 					}
 				});
-				// Add Partner Button
+				// Add Partner & Export Button
 				var datatableWrapper = $('#datatable1_wrapper');
 				var filter = datatableWrapper.find('div[id$=_filter]');
-				var newDiv = ' <label><button class="btn btn-sm btn-primary" onclick="Partner.detail();">Add Partner</button>';
+				var newDiv = ' <label><button class="btn btn-sm btn-primary" onclick="Partner.detail();">Add Partner</button> <button class="btn btn-sm btn-primary" onclick="Partner.export(\'csv\');">CSV</button> <button class="btn btn-sm btn-primary" onclick="Partner.export(\'xls\');">XLS</button></label>';
 				filter.append(newDiv);
 			}
 		},
@@ -366,6 +366,35 @@ var Partner = function() {
 				$('#complete-'+ id).addClass('hidden');
 				$('#read-more-'+ id).html('read more...');
 			}
+		},
+		export : function(type) {
+			var _this = this;
+			var url = type == 'csv' ? 'api/export/partner/csv' : 'api/export/partner/xls';
+			var token = Login.checkLS() ? localStorage.getItem('t') : $.cookie('t');
+			fetch(url, {
+				method : 'GET',
+				headers : {
+					'Authorization' : 'Bearer ' + token
+				}
+			})
+			.then(function(response) {
+				if(response.status == 401) {
+					Notification.show('danger', 'Session timed out, please re-login...', function(){
+						Login.logout();
+					});
+				} else {
+					response.blob().then(function(data) {
+						var filename = data.type == 'text/csv' ? 'partner.csv' : 'partner.xls';
+						saveAs(new Blob([data], {type: data.type}), filename);
+					})
+					.catch(function(error) {
+						Notification.show('danger', 'Partner file has wrong format');
+					});
+				}
+			})
+			.catch(function(error) {
+				Notification.show('danger', 'Failed to download partner file');
+			});
 		}
 	}
 }();

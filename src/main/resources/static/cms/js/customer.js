@@ -55,13 +55,19 @@ var Customer = function() {
 						var page = aData.pageNum;
 						var index = (page * size + (iDisplayIndex +1));
 						$('td:eq(0)', nRow).html(index);
-						if (aData.prime){
-							$(nRow).css({'background-color':'#001122'});
+						if (!aData.approval){
+							$(nRow).css({'background-color':'#ffcccc'});
 						}
 						
 						return nRow;
 					}
 				});
+				
+				// Add Export Button
+				var datatableWrapper = $('#datatable1_wrapper');
+				var filter = datatableWrapper.find('div[id$=_filter]');
+				var newDiv = ' <label><button class="btn btn-sm btn-primary" onclick="Customer.export(\'csv\');">CSV</button> <button class="btn btn-sm btn-primary" onclick="Customer.export(\'xls\');">XLS</button></label>';
+				filter.append(newDiv);
 			}
 		},
 		serverDataProcessor : function(sSource, aoData, fnCallback) {	
@@ -276,6 +282,35 @@ var Customer = function() {
 			} else {
 				callback();
 			}
+		},
+		export : function(type) {
+			var _this = this;
+			var url = type == 'csv' ? 'api/export/customer/csv' : 'api/export/customer/xls';
+			var token = Login.checkLS() ? localStorage.getItem('t') : $.cookie('t');
+			fetch(url, {
+				method : 'GET',
+				headers : {
+					'Authorization' : 'Bearer ' + token
+				}
+			})
+			.then(function(response) {
+				if(response.status == 401) {
+					Notification.show('danger', 'Session timed out, please re-login...', function(){
+						Login.logout();
+					});
+				} else {
+					response.blob().then(function(data) {
+						var filename = data.type == 'text/csv' ? 'customer.csv' : 'customer.xls';
+						saveAs(new Blob([data], {type: data.type}), filename);
+					})
+					.catch(function(error) {
+						Notification.show('danger', 'Customer file has wrong format');
+					});
+				}
+			})
+			.catch(function(error) {
+				Notification.show('danger', 'Failed to download customer file');
+			});
 		}
 	}
 }();

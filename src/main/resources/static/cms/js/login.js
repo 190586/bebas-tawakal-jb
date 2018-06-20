@@ -84,7 +84,7 @@ var Login = function () {
 			var home = 'admin';
 			var username = $('#username').val();
 			var password = $('#password').val();
-			var url = 'oauth/token?grant_type=password&username='+ username +'&password='+ password;
+			var url = 'oauth/token?grant_type=password&username='+ encodeURIComponent(username) +'&password='+ encodeURIComponent(password);
 			$.ajax({
 				'dataType' : 'json',
 				'type' : 'GET',
@@ -154,19 +154,11 @@ var Login = function () {
 				case 'menu' :
 					Menu.initialize();
 					break;
-				case 'myprofile' :
-					Profile.initialize();
-					break;	
 				case 'user' :
 					User.initialize();
 					break;
 				default :
-					$('.sub-menu-dashboard').addClass('active');
-					$('.pageheader-h2-icon').attr('class', 'pageheader-h2-icon');
-					$('.pageheader-h2-icon').addClass('fa fa-home');
-					$('.pageheader-h2-text').html(' Dashboard');
-					$('.pageheader-module').html('Dashboard');
-					$('.contentpanel').html('');
+					Dashboard.initialize();
 					break;
 			}
 		}

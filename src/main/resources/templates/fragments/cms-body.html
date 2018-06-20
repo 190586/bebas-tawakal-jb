@@ -16,7 +16,8 @@
     <div class="leftpanelinner">    
         
         <!-- This is only visible to small devices -->
-        <div class="visible-xs hidden-sm hidden-md hidden-lg">   
+        <!--
+        <div class="visible-xs visible-sm hidden-md hidden-lg">   
             <div class="media userlogged">
                 <img alt="" src="" class="media-object my-avatar-path"/>
                 <div class="media-body">
@@ -25,8 +26,8 @@
                 </div>
             </div>
             <h5 class="sidebartitle actitle">Navigation</h5>
-            <ul class="nav nav-pills nav-stacked nav-bracket mb30">
-		<li class="sub-menu sub-menu-dashboard"><a onclick="Login.loadModule();"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+            <ul class="nav nav-pills nav-stacked nav-bracket main-menu mb30">
+		<li class="sub-menu sub-menu-dashboard"><a onclick="Login.loadModule();"><i class="fa fa-home"></i><span>Home</span></a></li>
                 <li class="sub-menu sub-menu-menu"><a onclick="Login.loadModule('menu');"><i class="fa fa-tasks"></i><span>Menu</span></a></li>        
                 <li class="sub-menu sub-menu-customer"><a onclick="Login.loadModule('customer');"><i class="fa fa-user-circle"></i><span>Customer</span></a></li>
 		<li class="sub-menu sub-menu-partner"><a onclick="Login.loadModule('partner');"><i class="fa fa-handshake-o"></i><span>Partner</span></a></li>        
@@ -34,8 +35,8 @@
                 <li class=""><a href="#" class="sign-out-button"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
             </ul>
         </div>
-        
-        <div class="hidden-xs visible-sm visible-md visible-lg">
+        -->
+        <!--<div class="hidden-xs hidden-sm visible-md visible-lg">-->
             <div class="media userlogged">
                 <img alt="" src="" class="media-object my-avatar-path"/>
                 <div class="media-body">
@@ -45,14 +46,14 @@
             </div>
             <h5 class="sidebartitle">Navigation</h5>
             <ul class="nav nav-pills nav-stacked nav-bracket main-menu">
-                <li class="sub-menu sub-menu-dashboard"><a onclick="Login.loadModule();"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+                <li class="sub-menu sub-menu-dashboard"><a onclick="Login.loadModule();"><i class="fa fa-home"></i><span>Home</span></a></li>
                 <li class="sub-menu sub-menu-menu"><a onclick="Login.loadModule('menu');"><i class="fa fa-tasks"></i><span>Menu</span></a></li>        
                 <li class="sub-menu sub-menu-customer"><a onclick="Login.loadModule('customer');"><i class="fa fa-user-circle"></i><span>Customer</span></a></li>
 		<li class="sub-menu sub-menu-partner"><a onclick="Login.loadModule('partner');"><i class="fa fa-handshake-o"></i><span>Partner</span></a></li>        
                 <li class="sub-menu sub-menu-user"><a onclick="Login.loadModule('user');"><i class="fa fa-users"></i><span>Users</span></a></li>
                 <li class=""><a href="#" class="sign-out-button"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
             </ul>
-        </div>
+        <!--</div>-->
 
         <div class="infosummary">
             <h5 class="sidebartitle">Information Summary</h5>    
@@ -88,11 +89,13 @@
               </div>
             </div>
           </li>
+          <!--
           <li>
             <button id="chatview" class="btn btn-default tp-icon chat-icon">
                 <i class="glyphicon glyphicon-comment"></i>
             </button>
           </li>
+          -->
         </ul>
       </div><!-- header-right -->
       

@@ -252,6 +252,10 @@ var Menu = function() {
 							data.imagePath = result.replace(/^data:image\/[a-z]+;base64,/, "");
 							data.imagePathChanged = true;
 							data.iconPath = '';
+						} else {
+							data.imagePath = $('#old-image').val();
+							data.imagePathChanged = false;
+							delete data.old-image;
 						}
 						data = JSON.stringify(data);
 						saving(data);

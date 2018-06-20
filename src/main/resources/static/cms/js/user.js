@@ -160,7 +160,11 @@ var User = function() {
 					if(typeof result !== 'undefined') {
 						var strImage = result.replace(/^data:image\/[a-z]+;base64,/, "");
 						data.avatarPath = strImage;
-						data.avatarChanged = true;
+						data.avatarPathChanged = true;
+					} else {
+						data.avatarPath = $('#old-avatar').val();
+						data.avatarPathChanged = false;
+						delete data.old-avatar;
 					}
 					data = JSON.stringify(data);
 					$.ajax({
@@ -238,6 +242,7 @@ var User = function() {
 						$('.avatar-preview').css('display', 'block');
 						$('#avatar-fileupload').attr('class', 'fileupload fileupload-new');
 						$('.fileupload-preview').html('');
+						$('#old-avatar').val(data.avatarPath);
 					} else {
 						$('.avatar-preview').css('display', 'none');
 						$('#avatar-image').attr('src', '');
